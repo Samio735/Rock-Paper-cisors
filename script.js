@@ -13,10 +13,32 @@ else{
     else return "scisors"
 }
 }
-console.log("you choose rock")
+    const rockBtn = document.querySelector('.rock')
+    const paperBtn = document.querySelector('.paper')
+    const scisorsBtn = document.querySelector('.scisors')
 
+    let getPlayerchoice
+
+    rockBtn.addEventListener('click',setrock)
+    function setrock() {
+        getPlayerchoice ='rock'
+    }
+    paperBtn.addEventListener('click',setpaper)
+    function setpaper() {
+        getPlayerchoice ='paper'
+    }
+    scisorsBtn.addEventListener('click',setscisors)
+    function setscisors() {
+        getPlayerchoice ='scisors'
+    }
+
+const resultEl = document.querySelector('.result')
+const urchoice = document.querySelector('.urchoice')
+const cmpchoice = document.querySelector('.cmpchoice')
 function oneGame(computerCHoice,playerchoice){
-    console.log("computer choose : ",computerCHoice)
+    cmpchoice.innerText = computerCHoice
+    urchoice.innerText = playerchoice
+
     if (computerCHoice === "rock"){
         if (playerchoice === "rock") {
             return "draw"
@@ -52,20 +74,30 @@ function oneGame(computerCHoice,playerchoice){
             return "lose"
         }
     }
+    
 }
-let getPlayerchoice = "rock"
+let i = 1
 let playerScore = 0
-        let computerScore = 0
-function game() {
-    for (let i=0;i<5;i++) {
-        
+let computerScore = 0
+const roundNb = document.querySelector(".gameNumber")
+
+function result() { return oneGame(getComputerCHoice(),
+    getPlayerchoice())}
+
+const play = document.querySelector('.play')
+
+function game1() {
+    while (i<6) {
+        i++
+        roundNb.innerHTML = i
         if (playerScore === 3 ) {
             return "You win ! congratulations !!!"
         }
         if (computerScore === 3 ) {
             return " you lost the game :( , good luck next time !"
         }
-        let result = oneGame(getComputerCHoice(),getPlayerchoice)
+       
+        let result = oneGame(getComputerCHoice(),"rock")
         if (result === "win") {
             playerScore++
         }
@@ -86,4 +118,24 @@ function game() {
         }
     
 }
-console.log(game())
+
+function playOneGame(){
+    console.log("round",i)
+    console.log(
+        oneGame(getComputerCHoice(),getPlayerchoice)
+        )
+        resultEl.innerText = oneGame(getComputerCHoice(),getPlayerchoice)
+        i++
+}
+function game(){
+
+    
+rockBtn.addEventListener('click',playOneGame)
+scisorsBtn.addEventListener('click',playOneGame)
+paperBtn.addEventListener('click',playOneGame)
+}
+
+game()
+
+
+
