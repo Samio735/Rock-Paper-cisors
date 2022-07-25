@@ -39,6 +39,7 @@ text-shadow: 0px 1px 9px rgba(0, 0, 0, 0.15);
     margin-top: 65vh;
     margin-left: 23vw;
     width: 50vw;
+    z-index: 20;
 }
 
 .action button{
@@ -53,7 +54,7 @@ text-shadow: 0px 1px 9px rgba(0, 0, 0, 0.15);
 .player{
     position: absolute;
     left: 2em;
-    top: 7em;
+    top: 5.5em;
     font-size: 3rem;
 }
 
@@ -61,7 +62,7 @@ text-shadow: 0px 1px 9px rgba(0, 0, 0, 0.15);
 .computer{
     position: absolute;
     right: 4em;
-    top: 7em;
+    top: 5.7em;
     font-size: 3rem;
 }
 .you{
@@ -70,5 +71,92 @@ text-shadow: 0px 1px 9px rgba(0, 0, 0, 0.15);
     left: 8.5em;
     top: 6em;
     font-size: 4rem;
+
+}
+
+.urchoice{
+    background-image: url("images/rock.png");
+    position: absolute;
+    left: 4em;
+    top: 20em;
+    width: 300px;
+    height: 300px;
+}
+
+
+
+
+
+.rock{
+    background-image: url("images/rock.png");
+    position: absolute;
+    left: 4em;
+    top: 20em;
+    width: 300px;
+    height: 300px;
+}
+
+.paper{
+    background-image: url("images/paper.png");
+    position: absolute;
+    left: 4em;
+    top: 20em;
+    width: 360px;
+    height: 300px;
+}
+
+.scisors{
+    background-image: url("images/scisors.png");
+    position: absolute;
+    left: 4em;
+    top: 20em;
+    width: 350px;
+    height: 300px;
+}
+
+.cmpchoice{
+    background-image: url("images/rock.png");
+    position: absolute;
+    right: 6em;
+    top: 20em;
+    width: 300px;
+    height: 300px;
+    transform: scaleX(-1);
+}
+
+.computer.rock{
+    background-image: url("images/rock.png");
+    position: absolute;
+    right: 4em;
+    top: 7em;
+    width: 300px;
+    height: 300px;
+    transform: scaleX(-1);
+    left: unset;
+
+}
+
+.computer.paper{
+    background-image: url("images/paper.png");
+    position: absolute;
+    right: 4em;
+    top: 7em;
+    width: 360px;
+    height: 300px;
+    transform: scaleX(-1);
+    left: unset;
+
+
+}
+
+*.computer.scisors{
+    background-image: url("images/scisors.png");
+    position: absolute;
+    right: 4em;
+    top: 7em;
+    width: 350px;
+    height: 300px;
+    transform: scaleX(-1);
+    left: unset;
 
 }

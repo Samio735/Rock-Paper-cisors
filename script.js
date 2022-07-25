@@ -13,9 +13,9 @@ else{
     else return "scisors"
 }
 }
-    const rockBtn = document.querySelector('.rock')
-    const paperBtn = document.querySelector('.paper')
-    const scisorsBtn = document.querySelector('.scisors')
+    const rockBtn = document.querySelector('.chrock')
+    const paperBtn = document.querySelector('.chpaper')
+    const scisorsBtn = document.querySelector('.chscisors')
 
     let getPlayerchoice
 
@@ -36,9 +36,9 @@ const resultEl = document.querySelector('.result')
 const urchoice = document.querySelector('.urchoice')
 const cmpchoice = document.querySelector('.cmpchoice')
 function oneGame(computerCHoice,playerchoice){
-    cmpchoice.innerText = computerCHoice
-    urchoice.innerText = playerchoice
 
+    cmpchoice.setAttribute('class',`computer ${computerCHoice}`)
+    urchoice.setAttribute('class',playerchoice)
     if (computerCHoice === "rock"){
         if (playerchoice === "rock") {
             return "draw"
