@@ -160,3 +160,19 @@ text-shadow: 0px 1px 9px rgba(0, 0, 0, 0.15);
     left: unset;
 
 }
+
+.playerScore{
+    font-size: 10rem;
+    position: absolute;
+    left: 25vw;
+    top: 30vh;
+    z-index: 20;
+}
+
+.computerScore{
+    font-size: 10rem;
+    position: absolute;
+    right: 30vw;
+    top: 30vh;
+    z-index: 20;
+}

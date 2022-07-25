@@ -44,9 +44,12 @@ function oneGame(computerCHoice,playerchoice){
             return "draw"
         }
         if (playerchoice === "paper") {
+            playerScore= playerScore+1 
             return "win"
+
         }
         if (playerchoice === "scisors") {
+            computerScore++
             return "lose"
         }
     }
@@ -56,9 +59,12 @@ function oneGame(computerCHoice,playerchoice){
             return "draw"
         }
         if (playerchoice === "rock") {
+            playerScore++
             return "win"
+            
         }
         if (playerchoice === "paper") {
+            computerScore++
             return "lose"
         }
     }
@@ -68,9 +74,11 @@ function oneGame(computerCHoice,playerchoice){
             return "draw"
         }
         if (playerchoice === "scisors") {
+            playerScore++
             return "win"
         }
         if (playerchoice === "rock") {
+            computerScore++
             return "lose"
         }
     }
@@ -79,53 +87,31 @@ function oneGame(computerCHoice,playerchoice){
 let i = 1
 let playerScore = 0
 let computerScore = 0
+let result
 const roundNb = document.querySelector(".gameNumber")
 
-function result() { return oneGame(getComputerCHoice(),
-    getPlayerchoice())}
 
 const play = document.querySelector('.play')
+  const  playerScoreEl = document.querySelector(".playerScore")
+   const computerScoreEl = document.querySelector(".computerScore")
 
-function game1() {
-    while (i<6) {
-        i++
-        roundNb.innerHTML = i
-        if (playerScore === 3 ) {
-            return "You win ! congratulations !!!"
-        }
-        if (computerScore === 3 ) {
-            return " you lost the game :( , good luck next time !"
-        }
-       
-        let result = oneGame(getComputerCHoice(),"rock")
-        if (result === "win") {
-            playerScore++
-        }
-        if (result === "lose") {
-            computerScore++
-        } 
-        console.log("you", result)
-        console.log("your score: " , playerScore,"- computer: ",computerScore)
-    }
-        if ( playerScore>computerScore) {
-            return  "You win ! congratulations !!!"
-        }
-        if ( playerScore<computerScore) {
-            return " you lost the game :( , good luck next time !"
-        }
-        if ( playerScore === computerScore) {
-             return "that is a draw !"
-        }
-    
-}
-
+const roundEl = document.querySelector('.gameNumber')
 function playOneGame(){
-    console.log("round",i)
-    console.log(
-        oneGame(getComputerCHoice(),getPlayerchoice)
-        )
-        resultEl.innerText = oneGame(getComputerCHoice(),getPlayerchoice)
-        i++
+    roundEl.innerText = i
+    result = oneGame(getComputerCHoice(),getPlayerchoice)
+    resultEl.innerText = result
+    playerScoreEl.innerText = playerScore
+    computerScoreEl.innerText = computerScore
+    if(playerScore === 3 || computerScore === 3) {
+        console.log("gameover")
+        i = 0
+        playerScore = 0
+        computerScore = 0
+
+        return
+    
+    }
+    i++
 }
 function game(){
 
