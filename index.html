@@ -9,18 +9,28 @@
 </head>
 <body>
     <h1>Rock Paper scisors Game!</h1>
-    <h2>Round n <span class="gameNumber">0</span></h2>
-    <p>choose a hand !</p>
+    <h2 class="round">Round n <span class="gameNumber">0</span></h2>
+  
+<div class="action">
+        <button class="rock"> 
+            <img style="width:10em;"src="images/rock.png" alt="">
 
-        <button class="rock">rock</button>
-        <button class="paper">paper</button>
-        <button class="scisors">scisors</button>
+            </button>
+        <button class="paper">
+            <img style="width:10em;"src="images/paper.png" alt="">
+                
+        </button>
+        <button class="scisors">
+            <img style="opacity: 98%;;width:10em;"src="images/scisors.png" alt="">
 
-<p>you chose : <span class="urchoice">?</span></p>
-<p>the computer chose : <span class="cmpchoice">?</span></p>
+        </button>
+    </div>
+<p class="player">you chose : <br><span class="urchoice">?</span></p>
+<p class="computer">computer chose : <br> <span class="cmpchoice">?</span></p>
 
-<h2>You <span class="result">?</span></h2>
+<h2 class="you">You <span class="result">?</span></h2>
 
+<div class="bg"></div>
 
 <script>console.log("hello")</script>
     <script src="script.js"></script>

@@ -1,0 +1,74 @@
+.bg{
+position: absolute;
+width: 100vw;
+height: 100vh;
+left: 0px;
+top: 0px;
+z-index: -50;
+background: radial-gradient(50% 50% at 50% 50%, #FFA2A2 0%, #FA3D3D 100%);
+}
+
+h1{
+    position: absolute;
+
+height: 121px;
+left: 3.6em;
+top: 0.4em;
+
+font-family: 'Katibeh';
+font-style: normal;
+font-weight: 400;
+font-size: 5rem;
+
+
+color: #ece473;
+
+text-shadow: 0px 1px 9px rgba(0, 0, 0, 0.15);
+}
+
+.round{
+    position: absolute;
+    left: 37vw;
+    top: 20vh;
+    font-size: 4rem;
+
+}
+
+.action{
+    display: flexbox;
+    margin-top: 65vh;
+    margin-left: 23vw;
+    width: 50vw;
+}
+
+.action button{
+    margin-left: 2em;
+    height: 20vh;
+    width: 15em;
+    border: 0;
+    border-radius: 5em;
+    background: rgb(248, 222, 222);
+}
+
+.player{
+    position: absolute;
+    left: 2em;
+    top: 7em;
+    font-size: 3rem;
+}
+
+
+.computer{
+    position: absolute;
+    right: 4em;
+    top: 7em;
+    font-size: 3rem;
+}
+.you{
+
+    position: absolute;
+    left: 8.5em;
+    top: 6em;
+    font-size: 4rem;
+
+}
