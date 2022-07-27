@@ -1,23 +1,16 @@
+const resultEl = document.querySelector('.result')
+resultEl.innerText = ""
 
-let luck = Math.random()
-let choice
-function getComputerCHoice(){
+
+let computerCHoice
+ let getPlayerchoice
 luck = Math.random()
-if(luck<0.33){
-    return "rock"
-}
-else{
-    if (luck <0.66){
-        return "paper"
-    }
-    else return "scisors"
-}
-}
+
     const rockBtn = document.querySelector('.chrock')
     const paperBtn = document.querySelector('.chpaper')
     const scisorsBtn = document.querySelector('.chscisors')
 
-    let getPlayerchoice
+   
 
     rockBtn.addEventListener('click',setrock)
     function setrock() {
@@ -32,21 +25,66 @@ else{
         getPlayerchoice ='scisors'
     }
 
-const resultEl = document.querySelector('.result')
+
 const urchoice = document.querySelector('.urchoice')
 const cmpchoice = document.querySelector('.cmpchoice')
-function oneGame(computerCHoice,playerchoice){
+const choice = document.querySelector(".choice")
 
-    cmpchoice.setAttribute('class',`computer ${computerCHoice}`)
-    urchoice.setAttribute('class',playerchoice)
+
+function oneGame(playerchoice){
+    setTimeout(() => {
+            cmpchoice.setAttribute('src',`./images/enemy/rock.svg`)
+            urchoice.setAttribute('src',`./images/you/rock.svg`)
+    }, 100);
+    choice.setAttribute('class','choice nochoice')
+
+    setTimeout(() => {
+        choice.setAttribute('class','choice ')
+
+    }, 3200);
+    let luck = Math.random()
+    if(luck<0.33){
+        computerCHoice = "rock"
+    }
+    else{
+        if (luck <0.66){
+            computerCHoice = "paper"
+        }
+        else {
+            computerCHoice = "scisors"
+        } 
+    }
+    
+    console.log("you chose : ",playerchoice)
+    console.log("computer chose",computerCHoice)
+
+    urchoice.setAttribute('class','urchoice animate')
+    cmpchoice.setAttribute('class','cmpchoice animate')
+    setTimeout(function animateChoice() {
+    cmpchoice.setAttribute('src',`./images/enemy/${computerCHoice}.svg`)
+    urchoice.setAttribute('src',`./images/you/${playerchoice}.svg`)
+    urchoice.setAttribute('class','urchoice ')
+    cmpchoice.setAttribute('class','cmpchoice ')}
+    ,2200)
+    resultEl.innerHTML =""
     if (computerCHoice === "rock"){
         if (playerchoice === "rock") {
             return "draw"
         }
         if (playerchoice === "paper") {
+            setTimeout(function animatewin(){
+                urchoice.setAttribute('class','urchoice win')},
+                2800)
+                playerScore++
+            console.log("win")
             return "win"
         }
         if (playerchoice === "scisors") {
+            console.log("lose")
+            setTimeout(function animatelose(){
+                cmpchoice.setAttribute('class','cmpchoice win')},
+                2800)
+                computerScore++
             return "lose"
         }
     }
@@ -56,11 +94,23 @@ function oneGame(computerCHoice,playerchoice){
             return "draw"
         }
         if (playerchoice === "rock") {
+            setTimeout(function animatewin(){
+                urchoice.setAttribute('class','urchoice win')},
+                2800)
+                playerScore++
+            
+            console.log("win")
             return "win"
         }
         if (playerchoice === "paper") {
+
+            setTimeout(function animatelose(){
+                cmpchoice.setAttribute('class','cmpchoice win')},
+                2800)
+                computerScore++
             return "lose"
         }
+    
     }
 
     if (computerCHoice === "paper"){
@@ -68,14 +118,26 @@ function oneGame(computerCHoice,playerchoice){
             return "draw"
         }
         if (playerchoice === "scisors") {
-            return "win"
-        }
+            setTimeout(function animatewin(){
+                urchoice.setAttribute('class','urchoice win')},
+                2800)
+                console.log("win")
+                playerScore++
+                return "win"
+    }
         if (playerchoice === "rock") {
+            setTimeout(function animatelose(){
+                cmpchoice.setAttribute('class','cmpchoice win')},
+                2800)
+            console.log("lose")
+            computerScore++
             return "lose"
         }
-    }
     
+    }
 }
+    
+
 let i = 1
 let playerScore = 0
 let computerScore = 0
@@ -86,55 +148,55 @@ function result() { return oneGame(getComputerCHoice(),
 
 const play = document.querySelector('.play')
 
-function game1() {
-    while (i<6) {
-        i++
-        roundNb.innerHTML = i
-        if (playerScore === 3 ) {
-            return "You win ! congratulations !!!"
-        }
-        if (computerScore === 3 ) {
-            return " you lost the game :( , good luck next time !"
-        }
-       
-        let result = oneGame(getComputerCHoice(),"rock")
-        if (result === "win") {
-            playerScore++
-        }
-        if (result === "lose") {
-            computerScore++
-        } 
-        console.log("you", result)
-        console.log("your score: " , playerScore,"- computer: ",computerScore)
-    }
-        if ( playerScore>computerScore) {
-            return  "You win ! congratulations !!!"
-        }
-        if ( playerScore<computerScore) {
-            return " you lost the game :( , good luck next time !"
-        }
-        if ( playerScore === computerScore) {
-             return "that is a draw !"
-        }
-    
-}
+const score = document.querySelector('.score')
+
+const finalResult = document.querySelector('.finalResult')
 
 function playOneGame(){
     console.log("round",i)
-    console.log(
-        oneGame(getComputerCHoice(),getPlayerchoice)
-        )
-        resultEl.innerText = oneGame(getComputerCHoice(),getPlayerchoice)
+        result =  oneGame(getPlayerchoice)
+        console.log(result)
+        setTimeout(() => {
+         resultEl.innerText =result
+        }, 2800);
+        setTimeout(() => {
+            score.innerText = `${playerScore}-${computerScore}`
+        }, 3000);
+       if(playerScore == 3 || computerScore == 3) {
+        setTimeout(() => {
+            if(playerScore == 3) {
+            finalResult.innerText = "Congatulations ! you've beaten the other cat"
+        }
+        else { 
+            finalResult.innerText = "How bad !           the other cat beat you :("
+        }
+            gameState.setAttribute('class','gameOver')
+        }, 5000);
+        
+       }
+        
         i++
 }
+
+const rePlayBtn = document.querySelector('.rePlayBtn')
+
+function startgame() {
+    gameState.setAttribute('class','inGame')
+}
+function restart() {
+    history.go(0)
+}
+const startEL = document.querySelector('.playBtn')
+const gameState = document.querySelector('div')
 function game(){
 
-    
-rockBtn.addEventListener('click',playOneGame)
-scisorsBtn.addEventListener('click',playOneGame)
-paperBtn.addEventListener('click',playOneGame)
-}
+    startEL.addEventListener('click',startgame)
+    rockBtn.addEventListener('click',playOneGame)
+    scisorsBtn.addEventListener('click',playOneGame)
+    paperBtn.addEventListener('click',playOneGame)
+    rePlayBtn.addEventListener('click',restart)
 
+}
 game()
 
 
