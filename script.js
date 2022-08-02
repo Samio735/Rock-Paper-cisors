@@ -28,7 +28,7 @@ luck = Math.random()
 
 const urchoice = document.querySelector('.urchoice')
 const cmpchoice = document.querySelector('.cmpchoice')
-const choice = document.querySelector(".choice")
+const action = document.querySelector(".action")
 
 
 function oneGame(playerchoice){
@@ -36,10 +36,10 @@ function oneGame(playerchoice){
             cmpchoice.setAttribute('src',`./images/enemy/rock.svg`)
             urchoice.setAttribute('src',`./images/you/rock.svg`)
     }, 100);
-    choice.setAttribute('class','choice nochoice')
+    action.setAttribute('class','action nochoice')
 
     setTimeout(() => {
-        choice.setAttribute('class','choice ')
+        action.setAttribute('class','action ')
 
     }, 3200);
     let luck = Math.random()
@@ -171,7 +171,7 @@ function playOneGame(){
             finalResult.innerText = "How bad !           the other cat beat you :("
         }
             gameState.setAttribute('class','gameOver')
-        }, 5000);
+        }, 3500);
         
        }
         

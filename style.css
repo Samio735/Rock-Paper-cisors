@@ -6,11 +6,22 @@ body
           font-family: 'Katibeh';
 
     }
-
+.start{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.inGame{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
 .bg{
 position: fixed;
-width: 1000vw;
-height: 1000vh;
+width: 100vw;
+height: 100vh;
 left: 0px;
 top: 0px;
 z-index: 0;
@@ -32,11 +43,13 @@ body{
     height: fit-content;
     align-items: center;
     justify-content: center;
+    text-align: center;
     height: 20vh;
     z-index: 20;
 
 }
 .gameOver .title {
+    text-align: center;
     margin-top: 5vh;
     display: flex;
     flex-direction: column;
@@ -48,11 +61,12 @@ body{
 
 }
 .start .title {
-    display: flex;    flex-direction: column;
-    height: fit-content;
+    text-align: center;
+    display: flex;   
+     flex-direction: column;
+    min-height: 30em;
     align-items: center;
-    justify-content: center;
-    height: 20vh;
+ 
     z-index: 2200;
 
 }
@@ -81,13 +95,15 @@ font-size: 3.4rem;
 color: #73512E;
 z-index: 15;
 }
-
+.inGame .playBtn{
+    display: none;
+}
 .start .playBtn {
     z-index: 2200;
     position: fixed;
-    margin-top: 30em;
-    width: 50vw;
-    height: 10vh;
+    margin-top: 17em;
+    width: 18em;
+    height: 17;
     border-radius: 10em;
     border: none;
     background-color: #8C6338;
@@ -108,13 +124,19 @@ transition: 0.2s ease-in-out;
 
 
 }
+.inGame .bgPaws{
+    display: none;
+}
 
+.start .bgPaws{
+    z-index: 20;
+    display: flex;
+    flex-direction: column;;
+}
 .start .bgPaw  {
     z-index: 2200;
     width: 70vw;
-    position: fixed;
-    top: 42vh;
-    left: -15vw;
+
 }
 .bgPaw:hover{
     transform: translateX(5%);
@@ -123,9 +145,8 @@ transition: 0.2s ease-in-out;
 .start .bgPaw2  {
     z-index: 2200;
     width: 70vw;
-    position: fixed;
-    top: 65vh;
-    right: -15vw;
+    place-self: flex-end;
+
 }
 .bgPaw2:hover{
     transform: translateX(-5%);
@@ -135,22 +156,23 @@ transition: 0.2s ease-in-out;
 
 
 .inGame .action{
-    position: fixed;
-    bottom: 8vh;
-    width: 100vw;
     display: flex;
     justify-content: center;
 
     z-index: 200;
 }
-
+.inGame .action.nochoice{
+    filter: blur(4px);
+    opacity: 70%;
+}
 .inGame .action button{
     margin: 0 1.3em 0 1.3em;
-    height: 20vh;
+    height: fit-content;
     width: 7em;
     border: 0;
     border-radius: 5em;
     background:#FFE3DB;
+    z-index: 200;
 }
 .inGame .action .button .choice{
     width: 100em;
@@ -181,30 +203,38 @@ transition: 0.2s ease-in-out;
     width: 80vw;
     justify-content: space-evenly;
  }
- .inGame .text{
+ .inGame .down{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ .inGame .down .text{
+margin-bottom: 5px;
+margin-top: 0.5em;
     z-index: 20;
-    position: fixed;
-    bottom: 3vh;
-    left: 21vw;
     width: 19em;
  }
+
+ .inGame .info{
+    margin-top: 0em;
+    display: flex;
+    justify-content: space-evenly;
+ }
 .inGame .player{
-    position: absolute;
-    left: 0.5em;
-    top: 2.3em;
-    font-size: 3rem;
+    
+    font-size: 2rem;
     z-index: 20;
     color: #73512E;
     font-size: 4rem;
     font-weight: 500;
 }
 
-
+.info p{
+    margin: 0em auto;
+}
 .inGame .computer{
-    position: absolute;
-    top: 2.35em;
-    right: 0.2em;
-    font-size: 3rem;
+ 
+    font-size: 2rem;
     z-index: 20;
     font-size: 4rem;
     color: #73512E;
@@ -219,24 +249,23 @@ transition: 0.2s ease-in-out;
     font-size: 4rem;
     color: #73512E;
 
-    z-index: 100;
+    z-index: 1000;
 }
 
 .inGame .score{
     z-index: 20;
-    position: fixed;
-    top: 24vh;
-    left: 39vw;
-    font-size: 4.5rem;
+
+    font-size: 3.5rem;
     font-family: 'Katibeh';
     color: #73512E;
 
 }
 
 .inGame .urchoice{
+
     position: absolute;
-    left:-50vw;
-    top: -16vh;
+    right:120vw;
+    top: -5em;
     transform: rotate(90deg);
     z-index: 20;
     transform-origin: bottom left;
@@ -269,7 +298,7 @@ transition: 0.2s ease-in-out;
         transform: rotate(80deg);
     }
     60%{
-        left:-37vw ;
+        right: 110vw ;
     }
     100%{
 
@@ -278,25 +307,34 @@ transition: 0.2s ease-in-out;
 .inGame .cmpchoice{
     
     position: absolute;
-    right:-55vw;
-    top:-22vh;
+    left:130vw;
+    top: -10em;
     transform: rotate(-90deg);
     z-index: 20;
     transform-origin: bottom right;
 }
 .inGame .cmpchoice.animate{
     animation: updowncmp 0.8s 3 ;
+    
 }
 @keyframes updowncmp {
     0% {
+        position: absolute;
+        left:130%;
+        top: -10em;
         transition: ease-in-out;
     }
     50% {
+        position: absolute;
+        left:130%;
+        top: -10em;
         transform: rotate(-50deg);
         transition: ease-in;
     }
     100% {
-    
+        position: absolute;
+    left:130%;
+    top: -10em;
     }
 }
 .inGame .cmpchoice.win{
@@ -310,23 +348,14 @@ transition: 0.2s ease-in-out;
         transform: rotate(-80deg);
     }
     60%{
-        right:-40vw ;
+        left:120vw ;
     }
     100%{
 
     }
 }
 
-.inGame .choice.nochoice{
-    width: 80vw;
-    background:  #FFE3DB;
-    height: 28vh;
-    position: absolute;
-    bottom: 0;
-    left: 10vw;
-    opacity: 80%;
-    z-index: 200;
-}
+
  .gameOver .finalResult{
     width: 85vw;
     z-index: 200;
