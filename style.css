@@ -1,3 +1,4 @@
+
 body
     {
         margin: 0;
@@ -6,11 +7,20 @@ body
           font-family: 'Katibeh';
 
     }
-.start{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-}
+    .start{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        width: 100vw;
+        height: 100vh;
+    }.gameOver{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+    }
 .inGame{
     display: flex;
     flex-direction: column;
@@ -64,7 +74,7 @@ body{
     text-align: center;
     display: flex;   
      flex-direction: column;
-    min-height: 30em;
+    margin-bottom: 1em;
     align-items: center;
  
     z-index: 2200;
@@ -97,13 +107,14 @@ z-index: 15;
 }
 .inGame .playBtn{
     display: none;
+}.gameOver .playBtn{
+    display: none;
 }
 .start .playBtn {
     z-index: 2200;
-    position: fixed;
-    margin-top: 17em;
-    width: 18em;
-    height: 17;
+    margin-top: 4em;
+    width: fit-content;
+    height: fit-content;
     border-radius: 10em;
     border: none;
     background-color: #8C6338;
@@ -119,8 +130,9 @@ transition: 0.2s ease-in-out;
     font-size: 4.5rem;
     font-family: 'Katibeh';
     color: #FBB03B;
-    margin: 0;
+    margin: 0.15em 0.4em;
     font-weight: 700;
+    margin-bottom: -10px;
 
 
 }
@@ -156,9 +168,10 @@ transition: 0.2s ease-in-out;
 
 
 .inGame .action{
+    width: -webkit-fill-available;
     display: flex;
     justify-content: center;
-
+    justify-content: space-between;
     z-index: 200;
 }
 .inGame .action.nochoice{
@@ -216,6 +229,7 @@ margin-top: 0.5em;
  }
 
  .inGame .info{
+    width: 90vw;
     margin-top: 0em;
     display: flex;
     justify-content: space-evenly;
@@ -242,10 +256,8 @@ margin-top: 0.5em;
 }
 
 .inGame .you{
-    position: absolute;
     text-align: center;
-    left: 37vw;
-    top: 64vh;
+
     font-size: 4rem;
     color: #73512E;
 
@@ -260,7 +272,9 @@ margin-top: 0.5em;
     color: #73512E;
 
 }
-
+.gameOver .choice{
+    display: none;
+}
 .inGame .urchoice{
 
     position: absolute;
@@ -319,22 +333,16 @@ margin-top: 0.5em;
 }
 @keyframes updowncmp {
     0% {
-        position: absolute;
-        left:130%;
-        top: -10em;
+ 
         transition: ease-in-out;
     }
     50% {
-        position: absolute;
-        left:130%;
-        top: -10em;
+ 
         transform: rotate(-50deg);
         transition: ease-in;
     }
     100% {
-        position: absolute;
-    left:130%;
-    top: -10em;
+
     }
 }
 .inGame .cmpchoice.win{
@@ -348,43 +356,155 @@ margin-top: 0.5em;
         transform: rotate(-80deg);
     }
     60%{
-        left:120vw ;
+        left:130vw ;
     }
     100%{
 
     }
 }
 
-
+.inGame .finalResult{
+    display: none;
+}
  .gameOver .finalResult{
     width: 85vw;
     z-index: 200;
-    position: fixed;
-    top: 40vh;
-    left: 7vw;
     font-size: 2.5rem;
     text-align: center;
     color: #73512E;
  }
+ .inGame .rePlayBtn {
+    display: none;
+ }
  .gameOver .rePlayBtn{
+    margin-top: 2em;
     z-index: 2200;
-    position: fixed;
-    margin-top: 0;
-    top: 60vh;
-    left: 20vw;
-    width: 60vw;
-    height: 10vh;
+    width: fit-content;
+    height: fit-content;
     border-radius: 10em;
     border: none;
     background-color: #8C6338;
     padding: 0;
  }
-
+ .gameOver .down{
+    display: none;
+ }
+.start .choice{
+    display: none;
+}
  .gameOver .rePlayBtn p{
     font-size: 3rem;
+    margin: 0.15em 0.4em;
+    margin-bottom: -10px;
     font-family: 'Katibeh';
     color: #FBB03B;
-    margin: 0;
+
     font-weight: 700;
 
  }
+ .gameOver .bgPaw{
+    display: none;
+   } .gameOver .bgPaw2{
+    display: none;
+   }
+ @media screen and (min-width: 900px) {
+   html{
+    font-size: 150%;
+   }
+
+   .start .bgPaws{
+    width: 100vw;
+   }
+  .start .bgPaw{
+    width: 45vw;
+   }
+   .start .bgPaw2{
+    width: 45vw;
+    margin-top: -14em;
+    margin-left: -10em;
+   }
+   .inGame  .urchoice{
+    width: 14em;
+    right: 99vw;
+    top: -25em;
+   }
+   .inGame  .cmpchoice{
+    width: 14em;
+    left: 99vw;
+    top: -25em;
+   }
+   @keyframes youwin {
+    0%{
+
+    }
+    40%{
+        transform: rotate(80deg);
+    }
+    60%{
+        right: 80vw ;
+    }
+    100%{
+
+    }
+}
+@keyframes cmpwin {
+    0%{
+
+    }
+    40%{
+        transform: rotate(-80deg);
+    }
+    60%{
+        left:80vw ;
+    }
+    100%{
+
+    }
+}
+  }
+
+  @media screen and (min-width: 1500px) {
+    html{
+        font-size: 180%;
+    }
+    .inGame  .urchoice{
+        font-size: 85%;
+        width: 20em;
+        right: 100vw;
+        top: -32em;
+       }
+       .inGame  .cmpchoice{
+        font-size: 85%;
+        width: 20em;
+        left: 100vw;
+        top: -34em;
+       }
+       @keyframes youwin {
+        0%{
+    
+        }
+        40%{
+            transform: rotate(80deg);
+        }
+        60%{
+            right: 83vw ;
+        }
+        100%{
+    
+        }
+    }
+    @keyframes cmpwin {
+        0%{
+    
+        }
+        40%{
+            transform: rotate(-80deg);
+        }
+        60%{
+            left:83vw ;
+        }
+        100%{
+    
+        }
+    }
+  }
